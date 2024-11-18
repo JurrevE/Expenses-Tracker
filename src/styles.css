@@ -1,0 +1,109 @@
+/* Reset default margins and padding */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Main content styling */
+#maincontent {
+	height: 100vh;
+	background-color: #f4f4f9; /* Soft light background */
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding-top: 60px;
+	font-family: "Arial", sans-serif;
+	color: #333;
+}
+
+/* Form container */
+#expensesForm {
+	width: 80%;
+	max-width: 500px;
+	background-color: #ffffff; /* White background for form */
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+/* Title */
+h1 {
+	color: #333;
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+/* Expense amount display */
+.totalExpenses {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #2d5f2f; /* Dark green for the total */
+	margin-bottom: 20px;
+}
+
+/* Input fields container */
+.formdiv {
+	width: 100%;
+	margin-bottom: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+/* Labels */
+label {
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 5px;
+	color: #555;
+}
+
+/* Input fields */
+input {
+	width: 100%;
+	padding: 10px;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	outline: none;
+	transition: border-color 0.3s ease;
+}
+
+/* Input focus effect */
+input:focus {
+	border-color: #2d5f2f; /* Dark green border on focus */
+	box-shadow: 0 0 5px rgba(45, 95, 47, 0.5);
+}
+
+/* Submit button */
+button {
+	width: 100%;
+	padding: 12px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	background-color: #2d5f2f; /* Dark green */
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	margin-top: 10px;
+}
+
+button:hover {
+	background-color: #4c9a4c; /* Lighter green on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+	#expensesForm {
+		width: 90%;
+	}
+}
