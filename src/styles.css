@@ -101,9 +101,32 @@ button:hover {
 	background-color: #4c9a4c; /* Lighter green on hover */
 }
 
-/* Responsive design for smaller screens */
 @media (max-width: 600px) {
 	#expensesForm {
 		width: 90%;
 	}
+}
+
+li {
+	padding: 5px 0 5px 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#deleteButton,
+#editButton {
+	width: 150px;
+	height: 50px;
+	font-size: small;
+	margin-top: 0px;
+	margin: 0px 5px 0 5px;
+}
+
+#deleteButton {
+	background-color: red;
+}
+
+#editButton {
+	background-color: lightseagreen;
 }

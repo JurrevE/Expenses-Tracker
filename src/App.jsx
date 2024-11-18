@@ -2,23 +2,32 @@ import { React, useState } from "react";
 import "./styles.css";
 
 function ExpenseTracker() {
-	// State for total expenses, expenses list, and input values
 	const [totalExpenses, setTotalExpenses] = useState(0);
 	const [expensesList, setExpensesList] = useState([]);
 	const [nameInput, setNameInput] = useState("");
 	const [inputValue, setInputValue] = useState("");
 
-	// Handle form submission to update expenses
+	const handleEdit = (index) => {
+		console.log("meowww x3 ");
+		console.log("krijg kanker");
+	};
+
+	const handleDelete = (index) => {
+		console.log("Deleting expense at index:", index);
+		const expenseToDelete = expensesList[index];
+		setTotalExpenses((prevTotal) => prevTotal - expenseToDelete.amount);
+		setExpensesList((prevList) => prevList.filter((_, i) => i !== index));
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const amount = parseFloat(inputValue); // convert input to a number
+		const amount = parseFloat(inputValue);
 		if (!isNaN(amount) && nameInput.trim()) {
-			// make sure it's a valid number and name is not empty
 			const newExpense = { name: nameInput, amount };
-			setExpensesList((prevList) => [...prevList, newExpense]); // add new expense to the list
-			setTotalExpenses((prevTotal) => prevTotal + amount); // update totalExpenses
-			setInputValue(""); // reset input value after submission
-			setNameInput(""); // reset name input after submission
+			setExpensesList((prevList) => [...prevList, newExpense]);
+			setTotalExpenses((prevTotal) => prevTotal + amount);
+			setInputValue("");
+			setNameInput("");
 		} else {
 			alert("Please enter a valid expense name and amount.");
 		}
@@ -62,6 +71,12 @@ function ExpenseTracker() {
 					{expensesList.map((expense, index) => (
 						<li key={index}>
 							{expense.name}: ${expense.amount.toFixed(2)}
+							<button id="editButton" onClick={() => handleEdit(index)}>
+								Edit Expense
+							</button>
+							<button id="deleteButton" onClick={() => handleDelete(index)}>
+								Delete Expense
+							</button>
 						</li>
 					))}
 				</ul>
