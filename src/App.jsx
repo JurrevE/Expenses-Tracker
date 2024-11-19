@@ -6,10 +6,24 @@ function ExpenseTracker() {
 	const [expensesList, setExpensesList] = useState([]);
 	const [nameInput, setNameInput] = useState("");
 	const [inputValue, setInputValue] = useState("");
+	const [editIndex, setEditIndex] = useState(null);
+	const [buttonText, setButtonText] = useState("Add Expense");
+
+	const handleClick = () => {
+		setButtonText((prevText) =>
+			prevText === "Add Expense" ? "Save edited" : "Add Expense"
+		);
+	};
 
 	const handleEdit = (index) => {
-		console.log("meowww x3 ");
-		console.log("krijg kanker");
+		setEditIndex(index);
+		console.log("editindex is:" + editIndex);
+		console.log(index);
+		console.log(expensesList[index].name);
+		console.log(expensesList[index].amount);
+		setInputValue(expensesList[index].amount);
+		setNameInput(expensesList[index].name);
+		handleClick();
 	};
 
 	const handleDelete = (index) => {
@@ -62,7 +76,9 @@ function ExpenseTracker() {
 						onChange={(e) => setInputValue(e.target.value)}
 					/>
 				</div>
-				<button type="submit">Add Expense</button>
+				<button id="submitButton" type="submit">
+					{buttonText}
+				</button>
 			</form>
 
 			<div id="expensesList">
